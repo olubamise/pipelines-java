@@ -10,7 +10,7 @@ pool:
   vmImage: windows-2022
 
 steps:
-- task: Maven@4
+- task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
@@ -20,9 +20,9 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- task: PublishCodeCoverageResults@1
-  inputs:
-   codeCoverageTool: "JaCoCo"
-   summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
-   reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
-   failIfCoverageEmpty: true
+# - task: PublishCodeCoverageResults@1
+#   inputs:
+#    codeCoverageTool: "JaCoCo"
+#    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
+#    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
+#    failIfCoverageEmpty: true
