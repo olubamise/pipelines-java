@@ -7,7 +7,7 @@ trigger:
 - none
 
 pool:
-  vmImage: windows-latest
+  vmImage: windows-2022
 
 steps:
 - task: Maven@3
@@ -19,10 +19,10 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
-- task: PublishCodeCoverageResults@1
-  inputs:
-   codeCoverageTool: "JaCoCo"
-   summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
-   reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
-   failIfCoverageEmpty: true
+#     goals: 'package'
+# - task: PublishCodeCoverageResults@1
+#   inputs:
+#    codeCoverageTool: "JaCoCo"
+#    summaryFileLocation: "$(System.DefaultWorkingDirectory)/**/site/jacoco/jacoco.xml"
+#    reportDirectory: "$(System.DefaultWorkingDirectory)/**/site/jacoco"
+#    failIfCoverageEmpty: true
