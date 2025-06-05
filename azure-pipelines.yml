@@ -1,34 +1,11 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
 - main
 
-strategy:
-  matrix:
-    jdk10_linux:
-      imageName: "ubuntu-latest"
-      jdkVersion: "1.10"
-    jdk11_windows:
-      imageName: "windows-latest"
-      jdkVersion: "1.11"
-  maxParallel: 2
-
 pool:
-  vmImage: $(imageName)
+ vmImage: 'ubuntu-latest'
 
 steps:
-- task: Maven@4
-  inputs:
-    azureSubscription: "test-sc-app-reg"
-    mavenPomFile: "pom.xml"
-    mavenOptions: "-Xmx3072m"
-    javaHomeOption: "JDKVersion"
-    jdkVersionOption: $(jdkVersion)
-    jdkArchitectureOption: "x64"
-    publishJUnitResults: true
-    testResultsFiles: "**/TEST-*.xml"
-    goals: "package"
+- script: echo Hello, World!
+  displayName: 'Print Hello World'
 
