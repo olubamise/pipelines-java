@@ -4,7 +4,6 @@ trigger:
 
 pool:
  name: 'jaiyeoribe-pool'
- vmImage: 'Ubuntu-latest'
 
 steps:
 - script: echo Hello, World!
